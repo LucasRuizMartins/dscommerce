@@ -1,7 +1,8 @@
 package com.devsuperior.dscommerce.dto;
 
 import com.devsuperior.dscommerce.entities.Product;
-import jakarta.persistence.Column;
+import javax.persistence.Column;
+import javax.validation.constraints.*;
 
 public class ProductDTO {
 
@@ -31,14 +32,18 @@ public class ProductDTO {
         return id;
     }
 
+    @Size(min=3,max=80, message = "Nome precisa ter entre 3 e 80 caracteres")
+    @NotBlank(message = "Campo requerido")
     public String getName() {
         return name;
     }
 
+    @Size(min=10, message = "Descrição precisa de no minimo 10 caracteres")
+    @NotBlank
     public String getDescription() {
         return description;
     }
-
+    @Positive(message = "Não é permitido numero negativo")
     public Double getPrice() {
         return price;
     }
