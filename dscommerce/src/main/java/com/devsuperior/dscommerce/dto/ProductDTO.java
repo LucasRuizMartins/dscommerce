@@ -10,8 +10,14 @@ import java.util.List;
 public class ProductDTO {
 
     private Long id;
+    @Size (min = 10, message = "Descrição precisa ter de 3 a 80 caracteres")
+    @NotBlank(message = "Campo requerido")
     private String name;
+    @Size (min = 10, message = "Descrição precisa ter no minimo 10 caracteres")
+    @NotBlank(message = "Campo requerido")
     private String description;
+    @NotNull(message = "Campo requerido ! ")
+    @Positive(message = "o preço deve ser Positivo")
     private Double price;
     private String imgUrl;
 
