@@ -128,5 +128,15 @@ public User(){
     public Set<Role> getRoles() {
         return roles;
     }
+
+    public boolean hasRole(String roleName){
+        for (Role role : roles) {
+            if(role.getAuthority().equals(roleName)) {
+                return true;
+            }
+
+    }
+        return false;
+    }
 }
 
